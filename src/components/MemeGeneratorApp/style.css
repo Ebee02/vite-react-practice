@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;500;600;700&display=swap");
+
+body {
+  font-family: "Karla", sans-serif;
+}
+
+header {
+  background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
+}

@@ -1,44 +1,98 @@
-import { useState } from "react";
-import Star from "./Star";
+import React, { useState } from "react";
 
-function SampleProblem() {
-  const [contact, setContact] = useState({
-    firstName: "Doggy",
-    lastName: "Doe",
-    phone: "+123 (888) 223 546",
-    email: "email@example.com",
-    isFavorite: false,
+const SampleProblem = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+    isClick: false,
   });
 
-  function toggleButton() {
-    setContact((prevContact) => {
+  const onHandleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prevFormData) => {
       return {
-        ...prevContact,
-        isFavorite: !prevContact.isFavorite,
+        ...prevFormData,
+        [name]: type === "checkbox" ? checked : value,
       };
     });
-  }
+  };
 
+  const onHandleSubmit = (e) => {
+    e.preventDefault();
+    if (formData.password === formData.confirmPassword) {
+      console.log("form submitted successfully");
+    } else {
+      console.log("Password do not march");
+      return;
+    }
+    if (formData.isClick === true) {
+      console.log("Thanks for signing up for our newsletter!");
+    }
+  };
   return (
-    <div className="h-screen flex items-center justify-center antialiased">
-      <div className="shadow-md shadow-gray-500 w-60 p-4 flex flex-col items-center justify-center rounded-lg">
-        <img
-          src="../images/dog2.jpg"
-          alt=""
-          className="w-28 h-28 rounded-full mb-4"
-        />
-        <div className="w-full">
-          <Star isFilled={contact.isFavorite} handleClick={toggleButton} />
-          <h1 className="text-3xl font-semibold tracking-wide mb-4">
-            {contact.firstName} {contact.lastName}
-          </h1>
-          <p className="text-slate-400 font-medium text-lg mb-2">
-            {contact.phone}
-          </p>
-          <p className="text-slate-400 font-medium text-lg">{contact.email}</p>
+    <main className="antialiased font-medium min-h-screen flex items-center justify-center bg-purple-600">
+      <form
+        onSubmit={onHandleSubmit}
+        className="w-[450px] h-[525px] bg-white rounded-md shadow-2xl py-16 flex flex-col items-center  gap-y-8  "
+      >
+        <div className="flex flex-col ">
+          <label htmlFor="email" className="mb-1">
+            Email
+          </label>
+          <input
+            id="email"
+            type="email"
+            value={formData.email}
+            name="email"
+            onChange={onHandleChange}
+            className="border border-gray-500 rounded w-96 px-4 py-3 shadow-lg"
+          />
         </div>
-      </div>
-    </div>
+        <div className="flex flex-col ">
+          <label htmlFor="password" className="mb-1">
+            Password
+          </label>
+          <input
+            id="password"
+            type="password"
+            value={formData.password}
+            name="password"
+            onChange={onHandleChange}
+            className="border border-gray-500 rounded w-96 px-4 py-3 shadow-lg"
+          />
+        </div>
+        <div className="flex flex-col ">
+          <label htmlFor="confirmPassword" className="mb-1">
+            Confirm password
+          </label>
+          <input
+            id="confirmPassword"
+            type="password"
+            value={formData.confirmPassword}
+            name="confirmPassword"
+            onChange={onHandleChange}
+            className="border border-gray-500 rounded w-96 px-4 py-3 shadow-lg"
+          />
+        </div>
+
+        <div className="flex items-center gap-x-2">
+          <input
+            type="checkbox"
+            name="isClick"
+            id="isClick"
+            onChange={onHandleChange}
+            className="w-4 h-4 cursor-pointer bg-purple-600"
+          />
+          <label htmlFor="isFriendly">I want to join the newsletter</label>
+        </div>
+
+        <button className="py-2 px-6 bg-purple-600  text-white font-semibold tracking-wide rounded-md shadow-lg cursor-pointer ">
+          Sign up
+        </button>
+      </form>
+    </main>
   );
-}
+};
+
 export default SampleProblem;

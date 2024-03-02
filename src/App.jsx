@@ -10,10 +10,10 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-cyan-600 text-white flex flex-col items-center py-4 ">
+    <div className="min-h-screen bg-orange-400 text-white flex flex-col items-center py-4 ">
       <button
         onClick={onHandleClick}
-        className="w-80 py-3 bg-white shadow-md text-cyan-600 font-semibold rounded-md"
+        className="w-80 py-3 bg-white shadow-md text-black font-semibold rounded-md"
       >
         Toggle WindowTracker
       </button>

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import memesData from "./memesData";
+import { useEffect, useState } from "react";
 
 function Form() {
   const [meme, setMeme] = useState({
@@ -21,12 +20,17 @@ function Form() {
     });
   };
 
-  const [allMemeImages, setAllMemeImages] = useState(memesData);
+  const [allMemes, setAllMemes] = useState([]);
+
+  useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then((res) => res.json())
+      .then((data) => setAllMemes(data.data.memes));
+  }, []);
 
   function getMemeImage() {
-    const memesArray = allMemeImages.data.memes;
-    const randomNumber = Math.floor(Math.random() * memesArray.length);
-    const url = memesArray[randomNumber].url;
+    const randomNumber = Math.floor(Math.random() * allMemes.length);
+    const url = allMemes[randomNumber].url;
     setMeme((prevMeme) => {
       return {
         ...meme,
@@ -35,27 +39,22 @@ function Form() {
     });
   }
 
-  function onHandleSubmit() {
-    e.preventDefault();
-    console.log("form submitted");
-  }
-
   return (
     <main className=" text-slate-800  min-h-screen  flex items-center justify-center">
-      <form onSubmit={onHandleSubmit} className="w-[1000px]">
+      <div className="w-[1000px]">
         <div className="grid grid-rows-2 grid-cols-2 gap-3">
           <input
             type="text"
             name="topText"
             onChange={onHandleChange}
-            placeholder="Shut up"
+            placeholder="Top Text"
             className="border border-gray-300 rounded-md shadow-lg px-4 py-2"
           />
           <input
             type="text"
             name="bottomText"
             onChange={onHandleChange}
-            placeholder="Take the money"
+            placeholder="Bottom Text"
             className="border border-gray-300 rounded-md shadow-lg px-4 py-2"
           />
           <button
@@ -66,17 +65,17 @@ function Form() {
           </button>
         </div>
         <div className="flex items-center justify-center">
-          <div className="relative mt-4 h-[400px] w-[500px] px-8 py-2 flex items-center justify-center rounded-lg">
+          <div className="relative mt-4 h-[400px] w-[500px] flex items-center justify-center rounded-lg">
             <img className="w-full h-full" src={meme.randomImage} alt="" />
-            <h2 className="absolute top-4 font-bold text-5xl text-white">
+            <h2 className="absolute top-4 font-bold text-5xl text-slate-800">
               {formData.topText}
             </h2>
-            <h2 className="absolute bottom-7 font-bold text-5xl text-white">
+            <h2 className="absolute bottom-7 font-bold text-5xl text-slate-800">
               {formData.bottomText}
             </h2>
           </div>
         </div>
-      </form>
+      </div>
     </main>
   );
 }

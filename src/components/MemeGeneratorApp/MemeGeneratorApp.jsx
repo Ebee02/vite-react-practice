@@ -7,9 +7,8 @@ import "./style.css";
 function MemeGeneratorApp() {
   return (
     <>
-      {/* <Header />
-      <Form /> */}
-      <ApiPractice />
+      <Header />
+      <Form />
     </>
   );
 }

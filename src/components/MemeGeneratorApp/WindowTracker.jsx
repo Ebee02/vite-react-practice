@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { set } from "react-hook-form";
 
 const WindowTracker = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    window.addEventListener("resize", function (params) {
+    const watchWidth = () => {
+      console.log("Setting up...");
       setWindowWidth(window.innerWidth);
-    });
+    };
+
+    window.addEventListener("resize", watchWidth);
+
+    return () => {
+      console.log("Cleaning up...");
+      window.removeEventListener("resize", watchWidth);
+    };
   }, []);
+
   return (
     <h1 className="mt-4 text-4xl font-bold antialiased">
       Window width: {windowWidth}

@@ -1,6 +1,10 @@
 main {
-  background-image: url(../public/images/bg-react-logo.png);
+  background-image: url(images/bg-react-logo.png);
   background-position-x: right;
   background-position-y: 87%;
   background-repeat: no-repeat;
+}
+
+header {
+  background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
 }

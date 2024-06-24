@@ -40,33 +40,37 @@ function Form() {
   }
 
   return (
-    <main className=" text-slate-800  min-h-screen  flex items-center justify-center">
+    <main className=" antialiased text-slate-800  min-h-screen  flex items-center justify-center">
       <div className="w-[1000px]">
-        <div className="grid grid-rows-2 grid-cols-2 gap-3">
+        <div className="grid grid-rows-2 grid-cols-2 gap-3 font-medium">
           <input
             type="text"
             name="topText"
             onChange={onHandleChange}
             placeholder="Top Text"
-            className="border border-gray-300 rounded-md shadow-lg px-4 py-2"
+            className="border border-gray-300 rounded-lg shadow-lg px-2 py-[5px]"
           />
           <input
             type="text"
             name="bottomText"
             onChange={onHandleChange}
             placeholder="Bottom Text"
-            className="border border-gray-300 rounded-md shadow-lg px-4 py-2"
+            className="border border-gray-300 rounded-lg shadow-lg px-2 py-[5px]"
           />
           <button
             onClick={getMemeImage}
-            className="bg-[#711F8D] shadow-lg text-white border-none col-span-2 w-full rounded-md  px-4 py-3 text-xl"
+            className="transition-all duration-100 bg-[#711F8D] hover:bg-[#9539b4]  shadow-lg text-white border-none col-span-2 w-full rounded-md py-3"
           >
             Get a new meme image 🖼
           </button>
         </div>
-        <div className="flex items-center justify-center">
-          <div className="relative mt-4 h-[400px] w-[500px] flex items-center justify-center rounded-lg">
-            <img className="w-full h-full" src={meme.randomImage} alt="" />
+        <div className="h-[500px] flex items-center justify-center mt-2">
+          <div className="relative h-full w-[600px] ">
+            <img
+              className="w-full h-full"
+              src={meme.randomImage}
+              alt="meme pic"
+            />
             <h2 className="absolute top-4 font-bold text-5xl text-slate-800">
               {formData.topText}
             </h2>

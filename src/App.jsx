@@ -7,9 +7,9 @@ const App = () => {
   return (
     <div>
       {/* <ReactFacts /> */}
-      {/* <AirbnbApp /> */}
+      <AirbnbApp />
       {/* <MemeGeneratorApp /> */}
-      <SampleProblem />
+      {/* <SampleProblem /> */}
     </div>
   );
 };

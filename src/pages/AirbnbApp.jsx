@@ -3,7 +3,7 @@ import HeroSection from "../components/AirbnbApp/HeroSection";
 import cardData from "../components/AirbnbApp/cardData";
 import Card from "../components/AirbnbApp/Card";
 import "../components/AirbnbApp/css/airbnb.css";
-import SearchBar from "../components/AirbnbApp/SearchBar";
+import SearchBar from "../components/SampleProblem/SearchBar";
 
 function AirbnbApp() {
   const cardElements = cardData.map((data) => {
@@ -11,12 +11,11 @@ function AirbnbApp() {
   });
   return (
     <>
-      {/* <Navbar />
+      <Navbar />
       <HeroSection />
       <div className="flex items-center justify-between overflow-y-auto overflow-x-scroll">
         {cardElements}
-      </div> */}
-      <SearchBar />
+      </div>
     </>
   );
 }

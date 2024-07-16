@@ -8,11 +8,9 @@ function Header() {
             alt="text-logo"
             className="h-10 w-10"
           />
-          <h2 className="text-[#61DAFB] text-3xl font-medium tracking-wide">
-            ReactFacts
-          </h2>
+          <h2 className="text-[#61DAFB] text-4xl font-bold ">ReactFacts</h2>
         </div>
-        <h2 className="text-white text-2xl tracking-wide">
+        <h2 className="text-white text-2xl font-medium">
           React Course - Project 1
         </h2>
       </nav>

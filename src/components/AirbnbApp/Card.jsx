@@ -8,19 +8,19 @@ function Card(props) {
     badgeText = "";
   }
   return (
-    <div className="main-div w-60 m-8 rounded-md relative shadow-xl">
+    <div className="main-div w-60 m-8 rounded-md relative border border-gray-300 shadow-lg">
       {badgeText && (
-        <div className=" bg-white hover:bg-black transition-all duration-150  px-3 py-2 m-2 rounded-[3px] shadow-lg absolute text-center font-bold text-sm cursor-pointer text-slate-800 hover:text-white">
+        <div className=" bg-white hover:bg-black transition-all duration-150 px-3 py-2 m-2 rounded-sm shadow-lg absolute text-center font-semibold text-sm cursor-pointer text-slate-800 hover:text-white">
           {badgeText}
         </div>
       )}
 
       <img
-        className="w-full rounded-lg"
+        className="w-full h-64 rounded-lg"
         src={props.coverImg}
         alt={props.title}
       />
-      <div className=" p-2">
+      <div className="p-2">
         <div className="flex items-center text-sm">
           <img
             className="h-5 w-5 mr-2"

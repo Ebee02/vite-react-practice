@@ -2,7 +2,7 @@ import "../../style.css";
 
 function MainContent() {
   return (
-    <main className="text-white px-8">
+    <main className="main text-white px-8">
       <h1 className="text-5xl font-semibold mb-10 uppercase">
         Fun facts about React
       </h1>

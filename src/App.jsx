@@ -1,16 +1,18 @@
 import AirbnbApp from "./pages/AirbnbApp";
+import FramerMotion from "./pages/FramerMotion";
 import MemeGeneratorApp from "./pages/MemeGeneratorApp";
 import ReactFacts from "./pages/ReactFacts";
-import SampleProblem from "./pages/SampleProblem";
+import SampleProblemApp from "./pages/SampleProblemApp";
 
 const App = () => {
   return (
-    <div>
+    <>
       {/* <ReactFacts /> */}
-      <AirbnbApp />
+      {/* <AirbnbApp /> */}
       {/* <MemeGeneratorApp /> */}
-      {/* <SampleProblem /> */}
-    </div>
+      <SampleProblemApp />
+      {/* <FramerMotion /> */}
+    </>
   );
 };
 

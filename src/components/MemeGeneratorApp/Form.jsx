@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import memesData from "./memesData";
 
 function Form() {
+  const [memeImage, setMemeImage] = useState("");
+
   function onHandleGetMemeUrl() {
     const memesArray = memesData.data.memes;
     const randomNumber = Math.floor(Math.random() * memesArray.length);
-    const url = memesArray[randomNumber].url;
-    console.log("urls:", url);
+    setMemeImage(memesArray[randomNumber].url);
   }
+
+  console.log("memeImage", memeImage);
   return (
     <main className="min-h-screen text-slate-800  flex justify-center">
       <div className="w-[950px]">
@@ -46,21 +49,13 @@ function Form() {
             Get a new meme image 🖼
           </button>
         </div>
-        {/* <div className="h-[500px] flex items-center justify-center mt-2">
-          <div className="relative h-full w-[600px] ">
-            <img
-              className="w-full h-full"
-              src={meme.randomImage}
-              alt="meme pic"
-            />
-            <h2 className="absolute top-4 font-bold text-5xl text-slate-800">
-              {formData.topText}
-            </h2>
-            <h2 className="absolute bottom-7 font-bold text-5xl text-slate-800">
-              {formData.bottomText}
-            </h2>
-          </div>
-        </div> */}
+        <div className="mt-4  flex items-center justify-center ">
+          <img
+            src={memeImage}
+            alt="meme image"
+            className="h-[400px] w-[500px] border border-gray-500 rounded-md shadow-lg"
+          />
+        </div>
       </div>
     </main>
   );

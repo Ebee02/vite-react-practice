@@ -9,8 +9,8 @@ const App = () => {
     <>
       {/* <ReactFacts /> */}
       {/* <AirbnbApp /> */}
-      <MemeGeneratorApp />
-      {/* <SampleProblemApp /> */}
+      {/* <MemeGeneratorApp /> */}
+      <SampleProblemApp />
       {/* <FramerMotion /> */}
     </>
   );

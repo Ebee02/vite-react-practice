@@ -2,15 +2,25 @@ import { useEffect, useState } from "react";
 import memesData from "./memesData";
 
 function Form() {
-  const [memeImage, setMemeImage] = useState("");
+  const [meme, setMeme] = useState({
+    topText: "",
+    bottomText: "",
+    randomImage: "http://i.imgflip.com/1bij.jpg",
+  });
+
+  // const [memeImage, setMemeImage] = useState("http://i.imgflip.com/1bij.jpg");
+  const [allMemeImages, setAllMemeImages] = useState(memesData);
 
   function onHandleGetMemeUrl() {
-    const memesArray = memesData.data.memes;
+    const memesArray = allMemeImages.data.memes;
     const randomNumber = Math.floor(Math.random() * memesArray.length);
-    setMemeImage(memesArray[randomNumber].url);
+    const imageUrl = memesArray[randomNumber].url;
+    setMeme((prevMeme) => ({
+      ...prevMeme,
+      randomImage: imageUrl,
+    }));
   }
 
-  console.log("memeImage", memeImage);
   return (
     <main className="min-h-screen text-slate-800  flex justify-center">
       <div className="w-[950px]">
@@ -51,7 +61,7 @@ function Form() {
         </div>
         <div className="mt-4  flex items-center justify-center ">
           <img
-            src={memeImage}
+            src={meme.randomImage}
             alt="meme image"
             className="h-[400px] w-[500px] border border-gray-500 rounded-md shadow-lg"
           />

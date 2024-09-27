@@ -3,7 +3,7 @@ import { FaEnvelopeOpen } from "react-icons/fa";
 
 const SampleProblemApp = () => {
   return (
-    <section className="antialiased text-slate-600 px-8 md:px-14 max-w-screen-2xl min-h-screen">
+    <section className="body flex flex-col antialiased text-slate-600 px-8 md:px-14 max-w-screen-2xl min-h-screen">
       <div className="py-6">
         <h2 className="text-3xl font-bold text-violet-600">fc</h2>
       </div>
@@ -46,8 +46,8 @@ const SampleProblemApp = () => {
         </section>
         {/* Subscribe section ends */}
       </section>
-      <footer className="py-8">
-        <ul className="flex items-center gap-6 text-sm text-slate-500">
+      <footer className="py-8 mt-auto">
+        <ul className="flex items-center gap-6 text-sm text-white lg:text-slate-500">
           <li>
             <a href="#">About Us</a>
           </li>

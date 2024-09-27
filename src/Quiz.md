@@ -1,5 +1,5 @@
 1. What is conditional rendering?
-   ans: Conditional rendering is the concept of display elements on a webpage if certain conditions are meet.
+   ans: Conditional rendering is the concept of displaying elements on a webpage if certain conditions are meet.
 
 2. When would you use the &&?
    ans: The && operator is use for conditional rendering, it's use the when you're evaluating a condition, and

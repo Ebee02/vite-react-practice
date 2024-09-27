@@ -3,6 +3,7 @@ import FramerMotion from "./pages/FramerMotion";
 import MemeGeneratorApp from "./pages/MemeGeneratorApp";
 import ReactFacts from "./pages/ReactFacts";
 import SampleProblemApp from "./pages/SampleProblemApp";
+import ScrimbaPracitice from "./components/MemeGeneratorApp/ScrimbaPractice";
 
 const App = () => {
   return (
@@ -10,8 +11,8 @@ const App = () => {
       {/* <ReactFacts /> */}
       {/* <AirbnbApp /> */}
       {/* <MemeGeneratorApp /> */}
-      <SampleProblemApp />
-      {/* <FramerMotion /> */}
+      {/* <SampleProblemApp /> */}
+      <ScrimbaPracitice />
     </>
   );
 };

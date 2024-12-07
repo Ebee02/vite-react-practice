@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import AirbnbApp from "./pages/AirbnbApp";
 import FramerMotion from "./pages/FramerMotion";
 import MemeGeneratorApp from "./pages/MemeGeneratorApp";
@@ -10,9 +11,9 @@ const App = () => {
     <>
       {/* <ReactFacts /> */}
       {/* <AirbnbApp /> */}
-      {/* <MemeGeneratorApp /> */}
+      <MemeGeneratorApp />
       {/* <SampleProblemApp /> */}
-      <ScrimbaPracitice />
+      {/* <ScrimbaPracitice /> */}
     </>
   );
 };

@@ -2,6 +2,12 @@ import { useEffect, useState, useId } from "react";
 import memesData from "./memesData";
 
 function Form() {
+  useEffect(() => {
+    fetch(`https://api.imgflip.com/get_memes`)
+      .then((res) => res.json())
+      .then((data) => setStarWarsData(data));
+  }, [count]);
+
   const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
@@ -11,10 +17,10 @@ function Form() {
   const formId = useId();
 
   // const [memeImage, setMemeImage] = useState("http://i.imgflip.com/1bij.jpg");
-  const [allMemeImages, setAllMemeImages] = useState(memesData);
+  const [allMemes, setAllMemes] = useState(memesData);
 
   function onHandleGetMemeUrl() {
-    const memesArray = allMemeImages.data.memes;
+    const memesArray = allMemes.data.memes;
     const randomNumber = Math.floor(Math.random() * memesArray.length);
     const imageUrl = memesArray[randomNumber].url;
     setMeme((prevMeme) => ({
@@ -32,8 +38,6 @@ function Form() {
       };
     });
   }
-
-  console.log(meme);
 
   return (
     <main className="min-h-screen text-slate-800  flex justify-center">
